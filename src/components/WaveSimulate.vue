@@ -7,7 +7,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Water } from 'three/examples/jsm/objects/Water.js';
 import { Sky } from 'three/examples/jsm/objects/Sky.js';
 import Stats from 'three/examples/jsm/libs/stats.module.js';
-import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js'
+import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 
 export default {
@@ -18,10 +19,49 @@ export default {
         let clock, delta, boxes, numBoxes;
 
         const waves = {
-            A: { direction: 0, steepness: 0.4, wavelength: 60 },
-            B: { direction: 30, steepness: 0.4, wavelength: 30 },
-            C: { direction: 60, steepness: 0.4, wavelength: 15 },
+            A: { direction: 359, steepness: 0.4, wavelength: 60 },
+            B: { direction: 90, steepness: 0.4, wavelength: 30 },
+            C: { direction: 90, steepness: 0.4, wavelength: 15 },
         };
+        const loader = new GLTFLoader();
+
+        class Boat {
+            constructor() {
+                loader.load("assets/boat/scene.gltf", (gltf) => {
+                    scene.add(gltf.scene)
+                    gltf.scene.scale.set(3, 3, 3)
+                    gltf.scene.position.set(-50, 13, 40)
+                    gltf.scene.rotation.y = 1.5
+
+                    this.boat = gltf.scene
+                    this.speed = {
+                        vel: 0,
+                        rot: 0
+                    }
+                })
+            }
+        }
+
+        const boat = new Boat()
+
+        class Whale {
+            constructor() {
+                loader.load("assets/whale/whale.gltf", (gltf) => {
+                    scene.add(gltf.scene)
+                    gltf.scene.scale.set(15, 9, 10)
+                    gltf.scene.position.set(-5, 1, 5)
+                    gltf.scene.rotation.y = 3.5
+
+                    this.boat = gltf.scene
+                    this.speed = {
+                        vel: 0,
+                        rot: 0
+                    }
+                })
+            }
+        }
+
+        const whale = new Whale()
 
         function getWaveInfo(x, z, time) {
 
@@ -134,15 +174,13 @@ export default {
                 waterNormals: new THREE.TextureLoader().load(
                     '/public/assets/textures/waternormals.jpg',
                     function (texture) {
-
                         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-
                     }
                 ),
                 sunDirection: new THREE.Vector3(),
                 sunColor: 0xffffff,
                 waterColor: 0x001e0f,
-                distortionScale: 3.7,
+                distortionScale: 9,
                 fog: scene.fog !== undefined,
             });
             water.rotation.x = - Math.PI / 2;
