@@ -268,8 +268,6 @@ export default {
             stats = new Stats();
             container.appendChild(stats.dom);
 
-            GUI
-
             const gui = new GUI();
 
             const folderSky = gui.addFolder('Sky');
@@ -402,9 +400,7 @@ export default {
         }
 
         function render() {
-
             renderer.render(scene, camera);
-
         }
 
     }

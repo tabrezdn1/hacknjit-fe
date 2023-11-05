@@ -1,6 +1,5 @@
 <template>
   <div class="header">
-
     <div class="inner-header flex">
       <img src="../../public/wave-dynamics.png" height="100">
       <h1>Wave Dynamics</h1>
@@ -18,7 +17,6 @@
         Get Started!
       </button>
     </div>
-
     <div>
       <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -35,7 +33,7 @@
     </div>
   </div>
   <div class="content flex">
-    <p>Presented at HACKNJIT @ NJIT 2023 </p>
+    <p>Presented at <a href="https://hacknjit.devpost.com/" target="_blank">HACKNJIT </a><a href="https://www.njit.edu/" target="_blank"> @NJIT </a> 2023 </p>
   </div>
 </template>
 

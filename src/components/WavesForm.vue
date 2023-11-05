@@ -87,7 +87,7 @@
               </div>
             </div>
             <div class="footer-link padding-top--24">
-              <span>Ocean and wave data provided by <a href="https://www.meteomatics.com/en/weather-api/">meteo
+              <span>Ocean and wave data provided by <a href="https://www.meteomatics.com/en/weather-api/" target="_blank">meteo
                   matics</a></span>
               <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
                 <span><a href="#">© Wave Dynamics</a></span>
