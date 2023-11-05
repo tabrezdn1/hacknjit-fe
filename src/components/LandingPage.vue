@@ -49,8 +49,12 @@
       </svg>
     </div>
   </div>
-  <div class="content flex">
-    <p>Presented at <a href="https://hacknjit.devpost.com/" target="_blank">HACKNJIT </a><a href="https://www.njit.edu/" target="_blank"> @NJIT </a> 2023 </p>
+  <div class="content ">
+    <div>
+      <h3>{{quotes[quoteIndex]['quote'] }}- {{ quotes[quoteIndex]['author'] }}</h3>
+    </div>
+    <br/>
+    <h4>Presented at <a href="https://hacknjit.devpost.com/" target="_blank">HACKNJIT </a><a href="https://www.njit.edu/" target="_blank"> @NJIT </a> 2023 </h4>
   </div>
 </template>
 
@@ -61,13 +65,51 @@ export default {
     return {
       showWhy:false,
       showTeam:false,
+      quoteIndex:0,
       showTech:false,
       svgWidth: 0,//  SVG width
       svgHeight: 200,//  SVG height
       centreY: 0,//  Y coord of vertical centre of SVG
       waves: [],//  Array of waves
-      wavesCount: 10//  Number of waves in animation
+      wavesCount: 10,//  Number of waves in animation
+      quotes:[
+        {
+          quote:"It is not that life ashore is distasteful to me. But life at sea is better.",
+          author:"Sir Francis Drake"
+        },
+        {
+          quote:"The sea, once it casts its spell, holds one in its net of wonder forever.",
+          author:"Jacques Yves Cousteau"
+        },
+        {
+          quote:"Just because a sea is calm doesn’t mean that you can believe in its stillness.",
+          author:"Anthony T. Hincks"
+        },
+        {
+          quote:"When I’m out sailing, I don’t wonder what heaven is like because I know.",
+          author:"Anthony T. Hincks"
+        },
+        {
+          quote:"Now and then we had a hope that if we lived and were good, God would permit us to be Pirates.",
+          author:"Mark Twain"
+        },
+        {
+          quote:"That’s what a ship is, you know—it’s not just a keel and a hull and a deck and sails, that’s what a ship needs. But what a ship is, really is, is freedom.",
+          author:"Captain Jack Sparrow, 'Pirates of the Caribbean'"
+        },
+        {
+          quote:"Sometimes you need to tether your boats to stop them from following your dreams.",
+          author:"Anthony T. Hincks"
+        },
+        {
+          quote:"There is nothing – absolutely nothing – half so much worth doing as simply messing about in boats.",
+          author:"Kenneth Grahame"
+        },
+      ],
     };
+  },
+  mounted(){
+    this.quoteIndex = Math.floor(Math.random() * 7);
   },
   methods: {
     redirectToGithub(type){

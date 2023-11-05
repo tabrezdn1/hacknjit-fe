@@ -78,11 +78,11 @@
                 <button class="button-57" role="button" @click="prefillLatLng(17.847222, -149.267222)"><span
                     class="text">Teahupoo</span><span>Tahiti</span></button>
                 <button class="button-57" role="button" @click="prefillLatLng(0.01, 0.01)"><span class="text">Low
-                    waves</span><span>Somewhere random</span></button>
+                    waves</span><span>Custom data</span></button>
                 <button class="button-57" role="button" @click="prefillLatLng(0.02, 0.02)"><span class="text">Medium
-                    waves</span><span>Somewhere random</span></button>
+                    waves</span><span>Custom data</span></button>
                 <button class="button-57" role="button" @click="prefillLatLng(0.03, 0.03)"><span class="text">Huge
-                    waves</span><span>Somewhere random</span></button>
+                    waves</span><span>Custom data</span></button>
               </div>
             </div>
             <div class="footer-link padding-top--24">
