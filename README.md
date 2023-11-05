@@ -123,9 +123,9 @@ Back End - https://github.com/ar2653/hacknjit-be/#readme
 
 ### Inspired by:
 
-https://discourse.threejs.org/t/classic-ocean-shader-example-with-gestner-waves/29227
-https://raw.githack.com/Sean-Bradley/three.js/gerstner-waves/examples/webgl_shaders_ocean_gerstner.html
-https://sbcode.net/threejs/gerstnerwater/
+- https://discourse.threejs.org/t/classic-ocean-shader-example-with-gestner-waves/29227
+- https://raw.githack.com/Sean-Bradley/three.js/gerstner-waves/examples/webgl_shaders_ocean_gerstner.html
+- https://sbcode.net/threejs/gerstnerwater/
 
 
 ### Miscellaneous
