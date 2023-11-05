@@ -10,13 +10,13 @@
 <h1  align="center">Wave Dynamics</h1></p>
   
 
-###
+
 <p  align="center">
 
 <img  alt="Wave Dynamics gif"  src="./landingpage.gif"  />
 
 </p>
-###
+
 
 
 
