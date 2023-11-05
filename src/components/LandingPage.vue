@@ -24,9 +24,9 @@
     </div>
     <div v-if="showTech">
       <h4>Tech Used</h4>
-      <h5>Frontend: Three JS, WebGL, Vue + Vite</h5>
+      <h5>Frontend: Three JS, WebGL, Vue + Vite, JavaScript and CPP</h5>
       <h5>Backend: node JS, express</h5>
-      <h5>Cloud: Google Cloud Project, AWS</h5>
+      <h5>Cloud: Google Cloud SQL Storage</h5>
     </div>
     <div v-if="showTeam" style="color: white;">
       <h4>Our Team</h4>
