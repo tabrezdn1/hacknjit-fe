@@ -56,7 +56,7 @@
                 </div>
                 <div class="field padding-bottom--24">
                   <button class="get-data" @click="getWaveData">Get DATA</button>
-                  <img v-if="isFetching" src="../../public/assets/wait.png" style="height: 35px;" />
+                  <img v-if="isFetching" src="/assets/wait.png" style="height: 35px;" />
                 </div>
 
                 <div class="field padding-bottom--24">
