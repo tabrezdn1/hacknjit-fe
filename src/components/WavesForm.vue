@@ -39,38 +39,59 @@
         <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
           <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
             <img src="../../public/wave-dynamics.png" height="50">
-            <h1><a href="./home" rel="dofollow">Wave Dynamics</a></h1>
+            <h1><a href="./" rel="dofollow">Wave Dynamics</a></h1>
           </div>
           <div class="formbg-outer">
             <div class="formbg">
               <div class="formbg-inner padding-horizontal--48">
                 <span class="padding-bottom--15">Enter the region you want to explore!</span>
-                <form id="stripe-login">
-                  <div class="field padding-bottom--24">
-                    <label for="lat">Latitude of the location</label>
-                    <input name="lat" required>
-                  </div>
-                  <div class="field padding-bottom--24">
-                    <div class="grid--50-50">
-                      <label for="lng">Longtitude of the location</label>
-                    </div>
-                    <input name="lng" required>
-                  </div>
-                  <div class="field padding-bottom--24">
-                    <input type="submit" name="submit" value="Simulate WAVES">
-                  </div>
-                  <div class="field">
-                    <a class="ssolink" href="#">Checkout frequently searched ocean regions!</a>
-                  </div>
-                </form>
+
+                <div class="field padding-bottom--24">
+                  <label for="lat">Latitude of the location</label>
+                  <input name="lat">
+                </div>
+                <div class="field padding-bottom--24">
+                  <label for="lng">Longtitude of the location</label>
+                  <input name="lng">
+                </div>
+                <div class="field padding-bottom--24">
+                  <button class="get-data" @click="getWaveData">Get DATA</button>
+                  <img v-if="isFetching" src="../../public/assets/wait.png" style="height: 35px;" />
+                </div>
+
+                <div class="field padding-bottom--24">
+
+                  <button class="get-data" @click="goToSimulate">Simulate WAVES</button>
+                </div>
+
+                <div class="field">
+                  <button class="button-89" role="button" @click="displayFamousRegions()">Checkout frequently searched
+                    ocean
+                    regions!</button>
+                </div>
+
+              </div>
+              <div v-if="showFamousRegions" class="padding-bottom--24">
+                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
+                    text</span></button>
+                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
+                    text</span></button>
+                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
+                    text</span></button>
+                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
+                    text</span></button>
+                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
+                    text</span></button>
+                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
+                    text</span></button>
               </div>
             </div>
             <div class="footer-link padding-top--24">
-              <span>Ocean and wave data provided by <a href="">THIS APP</a></span>
+              <span>Ocean and wave data provided by <a href="https://www.meteomatics.com/en/weather-api/">meteo
+                  matics</a></span>
               <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-                <span><a href="#">© Stackfindover</a></span>
+                <span><a href="#">© Wave Dynamics</a></span>
                 <span><a href="#">Contact</a></span>
-                <span><a href="#">Privacy & terms</a></span>
               </div>
             </div>
           </div>
@@ -80,6 +101,31 @@
   </div>
 </template>
 <script>
+export default {
+  data() {
+    return {
+      isFetching: false,
+      showFamousRegions: false
+    }
+  },
+  methods: {
+    getWaveData() {
+      this.isFetching = true,
+        setTimeout(() => {
+          this.isFetching = false
+        }, 3000);
+    },
+    goToSimulate() {
+      this.$router.push("/waves-simulate")
+    },
+    displayFamousRegions() {
+      this.showFamousRegions = true
+      setTimeout(() => {
+        this.showFamousRegions = false
+      }, 10000);
+    }
+  },
+}
 </script>
 <style scoped>
 * {
@@ -90,6 +136,179 @@
   word-wrap: break-word;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
 }
+
+
+/* CSS */
+.button-89 {
+  --b: 3px;
+  /* border thickness */
+  --s: .45em;
+  /* size of the corner */
+  --color: #373B44;
+
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible {
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+
+
+/* CSS */
+.button-57 {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #18181a;
+  color: #18181a;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 18px 18px 17px;
+  text-decoration: none;
+  cursor: pointer;
+  background: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-57 span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.button-57 span:last-child {
+  color: white;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 13px;
+}
+
+.button-57:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.button-57:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-57:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+.success-data {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin: 5px;
+  padding: 5px;
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background-color: #567dff;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all .14s ease-out;
+  white-space: nowrap;
+}
+
+.success-data:hover {
+  box-shadow: 4px 4px 0 #000000;
+  transform: translate(-4px, -4px);
+}
+
+.success-data:focus-visible {
+  outline-offset: 1px;
+}
+
+.get-data {
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background: 0 0;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all .14s ease-out;
+  white-space: nowrap;
+}
+
+.get-data:hover {
+  box-shadow: 4px 4px 0 #000;
+  transform: translate(-4px, -4px);
+}
+
+.get-data:focus-visible {
+  outline-offset: 1px;
+}
+
+
 
 body {
   min-height: 100%;
