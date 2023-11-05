@@ -45,14 +45,13 @@
             <div class="formbg">
               <div class="formbg-inner padding-horizontal--48">
                 <span class="padding-bottom--15">Enter the region you want to explore!</span>
-
                 <div class="field padding-bottom--24">
                   <label for="lat">Latitude of the location</label>
-                  <input name="lat">
+                  <input name="lat" v-model="lat">
                 </div>
                 <div class="field padding-bottom--24">
                   <label for="lng">Longtitude of the location</label>
-                  <input name="lng">
+                  <input name="lng" v-model="lng">
                 </div>
                 <div class="field padding-bottom--24">
                   <button class="get-data" @click="getWaveData">Get DATA</button>
@@ -72,18 +71,12 @@
 
               </div>
               <div v-if="showFamousRegions" class="padding-bottom--24">
-                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
-                    text</span></button>
-                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
-                    text</span></button>
-                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
-                    text</span></button>
-                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
-                    text</span></button>
-                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
-                    text</span></button>
-                <button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate
-                    text</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(21.664019, -158.053852)"><span class="text">Banzai Pipeline</span><span>Hawaii</span></button> 
+                <button class="button-57" role="button" @click="prefillLatLng(-33.918861, 	18.423300)"><span class="text">Dungeons</span><span>South Africa</span></button> 
+                <button class="button-57" role="button" @click="prefillLatLng(17.847222, -149.267222)"><span class="text">Teahupoo</span><span>Tahiti</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(0.01, 0.01)"><span class="text">Low waves</span><span>Somewhere random</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(0.02, 0.02)"><span class="text">Medium waves</span><span>Somewhere random</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(0.03, 0.03)"><span class="text">Huge waves</span><span>Somewhere random</span></button>
               </div>
             </div>
             <div class="footer-link padding-top--24">
@@ -105,7 +98,9 @@ export default {
   data() {
     return {
       isFetching: false,
-      showFamousRegions: false
+      showFamousRegions: false,
+      lat:"",
+      lng:"",
     }
   },
   methods: {
@@ -117,6 +112,10 @@ export default {
     },
     goToSimulate() {
       this.$router.push("/waves-simulate")
+    },
+    prefillLatLng(lat,lng){
+      this.lat = String(lat),
+      this.lng = String(lng)
     },
     displayFamousRegions() {
       this.showFamousRegions = true
