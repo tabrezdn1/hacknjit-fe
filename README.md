@@ -11,13 +11,16 @@
   
 
 ###
+<p  align="center">
 
+<img  alt="Wave Dynamics gif"  src="./landingpage.gif"  />
 
+</p>
 ###
 
 
 
-<p  align="center">Made with Web GL, Three js, Vue js</p>
+<p  align="center">Made with Web GL, Three js, Vue js, JavaScript and CPP</p>
 
 ### Product Brief:
 
