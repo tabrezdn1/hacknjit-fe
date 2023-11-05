@@ -73,8 +73,8 @@
               <div v-if="showFamousRegions" class="padding-bottom--24">
                 <button class="button-57" role="button" @click="prefillLatLng(21.664019, -158.053852)"><span
                     class="text">Banzai Pipeline</span><span>Hawaii</span></button>
-                <button class="button-57" role="button" @click="prefillLatLng(-33.918861, 18.423300)"><span
-                    class="text">Dungeons</span><span>South Africa</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(6.664, 77.47)"><span
+                    class="text">Great Ocean</span><span>India</span></button>
                 <button class="button-57" role="button" @click="prefillLatLng(17.847222, -149.267222)"><span
                     class="text">Teahupoo</span><span>Tahiti</span></button>
                 <button class="button-57" role="button" @click="prefillLatLng(0.01, 0.01)"><span class="text">Low
