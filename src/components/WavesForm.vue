@@ -71,16 +71,23 @@
 
               </div>
               <div v-if="showFamousRegions" class="padding-bottom--24">
-                <button class="button-57" role="button" @click="prefillLatLng(21.664019, -158.053852)"><span class="text">Banzai Pipeline</span><span>Hawaii</span></button> 
-                <button class="button-57" role="button" @click="prefillLatLng(-33.918861, 	18.423300)"><span class="text">Dungeons</span><span>South Africa</span></button> 
-                <button class="button-57" role="button" @click="prefillLatLng(17.847222, -149.267222)"><span class="text">Teahupoo</span><span>Tahiti</span></button>
-                <button class="button-57" role="button" @click="prefillLatLng(0.01, 0.01)"><span class="text">Low waves</span><span>Somewhere random</span></button>
-                <button class="button-57" role="button" @click="prefillLatLng(0.02, 0.02)"><span class="text">Medium waves</span><span>Somewhere random</span></button>
-                <button class="button-57" role="button" @click="prefillLatLng(0.03, 0.03)"><span class="text">Huge waves</span><span>Somewhere random</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(21.664019, -158.053852)"><span
+                    class="text">Banzai Pipeline</span><span>Hawaii</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(-33.918861, 18.423300)"><span
+                    class="text">Dungeons</span><span>South Africa</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(17.847222, -149.267222)"><span
+                    class="text">Teahupoo</span><span>Tahiti</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(0.01, 0.01)"><span class="text">Low
+                    waves</span><span>Somewhere random</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(0.02, 0.02)"><span class="text">Medium
+                    waves</span><span>Somewhere random</span></button>
+                <button class="button-57" role="button" @click="prefillLatLng(0.03, 0.03)"><span class="text">Huge
+                    waves</span><span>Somewhere random</span></button>
               </div>
             </div>
             <div class="footer-link padding-top--24">
-              <span>Ocean and wave data provided by <a href="https://www.meteomatics.com/en/weather-api/" target="_blank">meteo
+              <span>Ocean and wave data provided by <a href="https://www.meteomatics.com/en/weather-api/"
+                  target="_blank">meteo
                   matics</a></span>
               <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
                 <span><a href="#">© Wave Dynamics</a></span>
@@ -94,28 +101,42 @@
   </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       isFetching: false,
       showFamousRegions: false,
-      lat:"",
-      lng:"",
+      lat: "",
+      lng: "",
     }
   },
   methods: {
     getWaveData() {
       this.isFetching = true,
         setTimeout(() => {
+          const date = new Date();
+          const dateString = date.toISOString().slice(0, 10) + 'T00:00:00Z';
+          axios.get(`http://localhost:4000/waves/getData?data=${dateString}&latitude=${this.lat}&longitude=${this.lng}`)
+            .then(response => {
+              console.log(response.data, "check");
+              let waveData = {
+                A: { direction: response.data.data.mean_wave_direction_first_swell, steepness: response.data.data.significant_wave_height_first_swell_converted, wavelength: response.data.data.wave_length_1 },
+                B: { direction: response.data.data.mean_wave_direction_second_swell, steepness: response.data.data.significant_wave_height_first_swell_converted, wavelength: response.data.data.wave_length_1 },
+                C: { direction: response.data.data.mean_wave_direction_third_swell, steepness: response.data.data.significant_wave_height_first_swell_converted, wavelength: response.data.data.wave_length_1 },
+              };
+              localStorage.setItem('waves', JSON.stringify(waveData));
+            })
           this.isFetching = false
         }, 3000);
     },
     goToSimulate() {
       this.$router.push("/waves-simulate")
     },
-    prefillLatLng(lat,lng){
+    prefillLatLng(lat, lng) {
       this.lat = String(lat),
-      this.lng = String(lng)
+        this.lng = String(lng)
     },
     displayFamousRegions() {
       this.showFamousRegions = true
@@ -574,5 +595,4 @@ a.ssolink {
   100% {
     transform: translateX(0px);
   }
-}
-</style>
+}</style>
