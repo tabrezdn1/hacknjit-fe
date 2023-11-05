@@ -28,7 +28,7 @@ Key Features:
 
 1. **Realistic Wave Simulation:** High-fidelity representation of ocean waves based on actual data, providing an authentic experience for users.
 
-2. **Interactive Controls:** Intuitive controls enabling users to manipulate wave parameters, such as height, speed, and frequency, allowing for a customizable simulation experience.
+2. **Interactive Controls:** Intuitive controls enable users to manipulate wave parameters, such as height, speed, and frequency, allowing for a customizable simulation experience.
 
 3. **Educational Tool:** Ideal for students, researchers, and educators to comprehend wave dynamics, coastal processes, and marine ecosystems through a visually engaging platform.
 
@@ -60,10 +60,9 @@ Potential future developments may include:
 
 
 ### Tech Stack:
-- Front End - Web GL based library - Three js, Vue js + vite
+- Front End - Web GL-based library - Three js, Vue js + vite
 - Back End - Node js, Express js
-- Database - Mongo DB
-- Cloud - Google Cloud Platform, Github Pages
+- Tools - Google Cloud Platform, Github
 
 ### Checkout the Backend code:
 Back End - https://github.com/ar2653/hacknjit-be/#readme
@@ -79,35 +78,35 @@ Back End - https://github.com/ar2653/hacknjit-be/#readme
 
 - Phase 1.1 - Vue + Vite Init codebase with vue-routing.
 
-- Phase 1.2 - Research on boyancy and waves API availibility.
+- Phase 1.2 - Research on buoyancy and waves API availability.
 
 - Phase 1.3 - Research around how simulations can be rendered using WebGL.
 
-#### Phase 2 - Implement the code functionality of simulation
+#### Phase 2 - Implement the core functionality of the simulation
 
 - Phase 2.1 - Implement simulation page using ThreeJS.
 
-- Phase 2.2 - Add boxes with boyancy simulation.
+- Phase 2.2 - Add boxes with buoyancy simulation.
 
-- Phase 2.3 - Implement Classic Ocean Shader Example with Gestner Waves
+- Phase 2.3 - Implement Classic Ocean Shader Example with Gerstner Waves
 
-- Phase 2.4 - Use of The Gerstner wave function on boxes and simulate the movement.
+- Phase 2.4 - Use The Gerstner wave function on boxes and simulate the movement.
 
 - Phase 2.5 - Further add two models(BOAT and BLUE WHALE) to showcase the relativity of the waves.
 
 #### Phase 3 - Plan the landing and form page
 
-- Phase 3.1 - Implement the landing page with minimalistic design.
+- Phase 3.1 - Implement the landing page with a minimalistic design.
 
 - Phase 3.2 - Form page implemented.
 
-- Phase 3.2 - Code cleanup and refactor.
+- Phase 3.3 - Code cleanup and refactor.
 
-### How does the app works?
+### How does the app work?
 
 - Get started by entering the lat and lng values of the region which you want to simulate.
 
-- With the help of API we retreive all the important pin points that are needed for simulation.
+- With the help of API we retrieve all the important pinpoints that are needed for simulation.
 
 - And hence render the simulation for the same data.
 
@@ -116,7 +115,7 @@ Back End - https://github.com/ar2653/hacknjit-be/#readme
 
 - Clone repository to your local machine
 
-- Open terminal and cd into repository folder
+- Open the terminal and cd into the repository folder
 
 - command: npm install
 
@@ -133,11 +132,11 @@ https://sbcode.net/threejs/gerstnerwater/
 
 #### Algorithm and Formulae
 
-##### The gerstner wave function is a commonly used method to calculate waves and simulate water in video games and movies or most 3d simulations.
+##### The Gerstner wave function is a commonly used method to calculate waves and simulate water in video games and movies or most 3d simulations.
 
 A = amplitude of wave (Float)
 W = wave number (Vector)
-D = direction (Vector) how do i know what to set the direction to?
+D = direction (Vector) how do I know what to set the direction to?
 S = Speed
 L = wave length
 phase-constant = S x 2* pi/L.
