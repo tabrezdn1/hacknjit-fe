@@ -172,7 +172,7 @@ export default {
                 textureWidth: 512,
                 textureHeight: 512,
                 waterNormals: new THREE.TextureLoader().load(
-                    '/public/assets/textures/waternormals.jpg',
+                    '/assets/textures/waternormals.jpg',
                     function (texture) {
                         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
                     }

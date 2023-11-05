@@ -1,21 +1,38 @@
 <template>
   <div class="header">
     <div class="inner-header flex">
-      <img src="../../public/wave-dynamics.png" height="100">
+      <img src="/wave-dynamics.png" height="100">
       <h1>Wave Dynamics</h1>
     </div>
     <div>
-      <button class="tile-button">
-        Why Wave Dynamics?
+      <button class="tile-button" @click="showLandingPageDetails('showWhy')">
+        What is Wave Dynamics?
       </button>
-      <button class="tile-button">
+      <button class="tile-button" @click="showLandingPageDetails('showTech')">
         TECH stack
-      </button><button class="tile-button">
+      </button><button class="tile-button" @click="showLandingPageDetails('showTeam')">
         Meet the TEAM
       </button>
+      <button class="tile-button" @click="redirectToGithub('FE')">FE: Source Code</button>
+      <button class="tile-button" @click="redirectToGithub('BE')">BE: Source Code</button>
       <button class="get-started" @click="redirectToForm()">
         Get Started!
       </button>
+    </div>
+    <div v-if="showWhy">
+      <h3 style="color: white;">Interactive web app using authentic ocean data for realistic wave simulation, offering an immersive experience with accurate wave behaviors, and providing an educational and immersive experience for users.</h3>
+    </div>
+    <div v-if="showTech">
+      <h4>Tech Used</h4>
+      <h5>Frontend: Three JS, WebGL, Vue + Vite</h5>
+      <h5>Backend: node JS, express</h5>
+      <h5>Cloud: Google Cloud Project, AWS</h5>
+    </div>
+    <div v-if="showTeam" style="color: white;">
+      <h4>Our Team</h4>
+      <h5>Frontend: Shaik Tabrez</h5>
+      <h5>Backend: Ankush Ranapure</h5>
+      <h5>Cloud: Richa Singh</h5>
     </div>
     <div>
       <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -42,6 +59,9 @@
 export default {
   data: function () {
     return {
+      showWhy:false,
+      showTeam:false,
+      showTech:false,
       svgWidth: 0,//  SVG width
       svgHeight: 200,//  SVG height
       centreY: 0,//  Y coord of vertical centre of SVG
@@ -50,6 +70,20 @@ export default {
     };
   },
   methods: {
+    redirectToGithub(type){
+      if(type === "FE"){
+        window.open("https://github.com/tabrezdn1/hacknjit-fe#hacknjit-fe", '_blank');
+      }
+      if(type === "BE"){
+        window.open("https://github.com/ar2653/hacknjit-be/#readme", '_blank');
+      }
+    },
+    showLandingPageDetails(type){
+      this[type] = true;
+      setTimeout(() => {
+        this[type] = false
+      }, 5000);
+    },
     redirectToForm() {
       this.$router.push("/waves-form")
     },
